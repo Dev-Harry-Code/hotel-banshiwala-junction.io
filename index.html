@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hotel Banshiwala Junction | Royal Heritage Stopover in Mehsana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/motion@10.16.2/dist/motion.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        imperial: '#5C0612',
+        gold: '#D4AF37',
+        golddark: '#AA7C11',
+        cream: '#FDFBF7',
+      },
+      fontFamily: {
+        headline: ['Cinzel Decorative', 'serif'],
+        body: ['Jost', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+[x-cloak] { display: none !important; }
+.nav-scrolled { background-color: #5C0612 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.arch-top { border-radius: 50% / 30% 30% 0 0; }
+.arch-bottom { border-radius: 0 0 50% / 30% 30%; }
+.golden-rule { display: flex; align-items: center; justify-content: center; gap: 0.75rem; white-space: nowrap; }
+.golden-rule::before,
+.golden-rule::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #D4AF37, transparent); }
+.btn-scale { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.btn-scale:hover { transform: scale(1.03); }
+.testimonial-scroll { scrollbar-width: thin; scrollbar-color: #D4AF37 transparent; scroll-behavior: smooth; }
+.testimonial-scroll::-webkit-scrollbar { height: 4px; }
+.testimonial-scroll::-webkit-scrollbar-track { background: transparent; }
+.testimonial-scroll::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+.parchment-bg { background: linear-gradient(145deg, #FDFBF7 0%, #f5efe0 100%); }
+.hero-arch { border-radius: 0 0 50% 50% / 0 0 8% 8%; }
+</style>
+</head>
+<body class="bg-cream text-gray-800 font-body antialiased">
+
+<!-- ===== HEADER ===== -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
+<a href="#" class="font-headline text-white font-bold text-lg lg:text-xl tracking-wide drop-shadow-sm">Hotel Banshiwala Junction</a>
+<nav class="hidden md:flex items-center gap-6 lg:gap-8 text-white text-sm lg:text-base font-medium">
+<a href="#heritage" class="hover:text-gold transition-colors duration-300">Heritage</a>
+<a href="#culinary" class="hover:text-gold transition-colors duration-300">Cuisine</a>
+<a href="#rooms" class="hover:text-gold transition-colors duration-300">Rooms</a>
+<a href="#banquets" class="hover:text-gold transition-colors duration-300">Banquets</a>
+<a href="#location" class="hover:text-gold transition-colors duration-300">Location</a>
+<button @click="$store.modal.open = true" class="bg-gold hover:bg-golddark text-white font-semibold px-5 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-sm lg:text-base btn-scale">Book Stay / Table</button>
+</nav>
+<button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">☰</button>
+</div>
+<nav id="mobile-menu" class="md:hidden hidden flex-col bg-imperial px-4 pb-4 text-white text-sm font-medium gap-3">
+<a href="#heritage" class="hover:text-gold transition-colors py-1">Heritage</a>
+<a href="#culinary" class="hover:text-gold transition-colors py-1">Cuisine</a>
+<a href="#rooms" class="hover:text-gold transition-colors py-1">Rooms</a>
+<a href="#banquets" class="hover:text-gold transition-colors py-1">Banquets</a>
+<a href="#location" class="hover:text-gold transition-colors py-1">Location</a>
+<button @click="$store.modal.open = true" class="bg-gold hover:bg-golddark text-white font-semibold px-5 py-2 rounded-full transition-all duration-300 text-center mt-2">Book Stay / Table</button>
+</nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden hero-arch">
+<div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image: url('./images/IMG-20260709-WA0019.jpg');"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-imperial/80 via-black/50 to-imperial/70"></div>
+<div id="hero-content" class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+<h1 class="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 drop-shadow-lg">Your Premium Stopover in Mehsana</h1>
+<p class="text-lg sm:text-xl md:text-2xl font-light max-w-2xl mx-auto drop-shadow-md">Where Royal Comfort Meets the Rich Flavors of Kathiyawad, Gujarat &amp; Rajasthan</p>
+<div class="mt-8 flex flex-wrap justify-center gap-4">
+<a href="#culinary" class="bg-gold hover:bg-golddark text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-lg btn-scale">Explore Cuisine</a>
+<button @click="$store.modal.open = true" class="border-2 border-white hover:bg-white hover:text-imperial text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 btn-scale">Book Now</button>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== SECTION A: THE HERITAGE ARCHWAY ===== -->
+<section id="heritage" class="py-16 lg:py-24 bg-cream">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="relative border-2 border-gold/40 rounded-3xl p-8 lg:p-14 parchment-bg shadow-xl">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-cream px-4 text-gold text-2xl">&#9670;</div>
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-imperial mb-6">A Confluence of Taste <span class="text-gold">&amp;</span> Royal Comfort</h2>
+<div class="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
+<p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">Nestled in the heart of <strong class="text-imperial">Mehsana</strong>, Hotel Banshiwala Junction stands as a proud gateway for travelers journeying across the vibrant corridors of <strong class="text-imperial">Gujarat</strong> and <strong class="text-imperial">Rajasthan</strong>. Rooted in a legacy of pure vegetarian hospitality, we offer a sanctuary where heritage architecture meets modern comfort — a regal pause before your next adventure.</p>
+<p class="text-gray-600 mt-4 text-lg">Whether you are a highway traveler, a corporate guest, or a family seeking a traditional feast, every corner of our palace-inspired estate whispers <em class="text-gold">"Padharo Mhare Desh"</em>.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== CULINARY EXPERIENCE ===== -->
+<section id="culinary" class="py-20 lg:py-28 bg-cream">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-imperial mb-4">The 100% Pure Veg Culinary Experience</h2>
+<p class="text-gray-600 max-w-2xl mx-auto mb-4 text-lg">A celebration of regional heritage — every dish tells a story of tradition, spice, and soul.</p>
+<div class="golden-rule mb-12 text-gold text-xs">&#9670;</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+<div class="overflow-hidden arch-top"><img src="./images/IMG-20260709-WA0016.jpg" alt="Gujarati Thali" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-700" /></div>
+<div class="p-6 text-left">
+<span class="inline-block bg-gold/10 text-golddark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Gujarat</span>
+<h3 class="font-headline text-xl text-imperial mb-2">Traditional Gujarati Thali</h3>
+<p class="text-gray-600 text-sm leading-relaxed">Sweet, savory, and perfectly balanced — an endless platter of pure vegetarian bliss that captures the heart of Gujarat.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+<div class="overflow-hidden arch-top"><img src="./images/IMG-20260709-WA0021.jpg" alt="Kathiyawadi Food" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-700" /></div>
+<div class="p-6 text-left">
+<span class="inline-block bg-gold/10 text-golddark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Kathiyawad</span>
+<h3 class="font-headline text-xl text-imperial mb-2">Authentic Kathiyawadi Spices</h3>
+<p class="text-gray-600 text-sm leading-relaxed">Fiery, rustic, and stone-ground flavors — experience the bold, earthy taste of Saurashtra's legendary spice traditions.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+<div class="overflow-hidden arch-top"><img src="./images/IMG-20260709-WA0014.jpg" alt="Rajasthani Cuisine" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-700" /></div>
+<div class="p-6 text-left">
+<span class="inline-block bg-gold/10 text-golddark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Rajasthan</span>
+<h3 class="font-headline text-xl text-imperial mb-2">Royal Rajasthani Kitchen</h3>
+<p class="text-gray-600 text-sm leading-relaxed">Rich curries, Dal Baati Churma, and heritage recipes — a majestic spread straight from the royal kitchens of Rajasthan.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== LUXURY ACCOMMODATIONS ===== -->
+<section id="rooms" class="py-20 lg:py-28 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-imperial mb-4">Luxury Accommodations</h2>
+<p class="text-gray-600 max-w-2xl mx-auto text-lg">Comfort that feels like home — designed for the modern traveler and the royal at heart.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+<div class="overflow-hidden arch-top"><img src="./images/IMG-20260709-WA0023.jpg" alt="Executive AC Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" /></div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="bg-imperial/10 text-imperial text-xs font-bold px-3 py-1 rounded-full">100% Pure Veg Premises</span>
+<span class="bg-gold/10 text-golddark text-xs font-bold px-3 py-1 rounded-full">Near Railway Station &amp; Highway</span>
+</div>
+<h3 class="font-headline text-2xl text-imperial mb-2">Executive AC Rooms</h3>
+<p class="text-gray-600">Ideal for corporate transits near Mehsana Junction. Modern amenities, high-speed Wi-Fi, and a serene ambience to unwind after a long journey.</p>
+<ul class="mt-4 flex flex-wrap gap-4 text-sm text-gray-500">
+<li class="flex items-center gap-1">&#10003; Air Conditioning</li>
+<li class="flex items-center gap-1">&#10003; Free Wi-Fi</li>
+<li class="flex items-center gap-1">&#10003; Room Service</li>
+</ul>
+</div>
+</div>
+<div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+<div class="overflow-hidden arch-top"><img src="./images/IMG-20260709-WA0008.jpg" alt="Royal Family Suite" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" /></div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="bg-imperial/10 text-imperial text-xs font-bold px-3 py-1 rounded-full">100% Pure Veg Premises</span>
+<span class="bg-gold/10 text-golddark text-xs font-bold px-3 py-1 rounded-full">Near Railway Station &amp; Highway</span>
+</div>
+<h3 class="font-headline text-2xl text-imperial mb-2">Royal Family Suites</h3>
+<p class="text-gray-600">Spacious heritage stays designed for families. Elegant decor, separate living areas, and premium comforts for a truly regal experience.</p>
+<ul class="mt-4 flex flex-wrap gap-4 text-sm text-gray-500">
+<li class="flex items-center gap-1">&#10003; Spacious Living Area</li>
+<li class="flex items-center gap-1">&#10003; Heritage Decor</li>
+<li class="flex items-center gap-1">&#10003; Premium Amenities</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== SECTION B: ROYAL BANQUETS ===== -->
+<section id="banquets" class="py-20 lg:py-28 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('./images/IMG-20260709-WA0028.jpg');"></div>
+<div class="absolute inset-0 bg-imperial/75"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="text-white">
+<span class="inline-block border border-gold text-gold text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Shubh Prasang &amp; Celebrations</span>
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-gold mb-6">Royal Banquets &amp; Event Spaces</h2>
+<div class="w-16 h-0.5 bg-gold mb-6"></div>
+<p class="text-white/90 text-lg leading-relaxed mb-6">From intimate kitty parties to grand family functions, corporate transits to traditional celebrations — our banquet hall is designed to host your most cherished moments with regal elegance.</p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="border border-gold/30 rounded-xl p-4 text-center">
+<p class="text-gold text-2xl font-headline font-bold">50+</p>
+<p class="text-white/70 text-sm">Guest Capacity</p>
+</div>
+<div class="border border-gold/30 rounded-xl p-4 text-center">
+<p class="text-gold text-2xl font-headline font-bold">100%</p>
+<p class="text-white/70 text-sm">Pure Veg Menu</p>
+</div>
+<div class="border border-gold/30 rounded-xl p-4 text-center">
+<p class="text-gold text-2xl font-headline font-bold">24/7</p>
+<p class="text-white/70 text-sm">Event Support</p>
+</div>
+<div class="border border-gold/30 rounded-xl p-4 text-center">
+<p class="text-gold text-2xl font-headline font-bold">Free</p>
+<p class="text-white/70 text-sm">Parking &amp; Wi-Fi</p>
+</div>
+</div>
+<button @click="$store.modal.open = true" class="bg-gold hover:bg-golddark text-imperial font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-lg btn-scale">Inquire About Your Event</button>
+</div>
+<div class="hidden lg:block">
+<div class="rounded-3xl overflow-hidden border-4 border-gold/30 shadow-2xl arch-top">
+<img src="./images/IMG-20260709-WA0028.jpg" alt="Royal Banquet Hall" class="w-full h-96 object-cover" />
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== AMENITIES ===== -->
+<section id="amenities" class="py-20 lg:py-28 bg-cream">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-imperial mb-4">Premium Amenities</h2>
+<div class="golden-rule mb-12 text-gold text-xs">&#9670;</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-gold"><div class="text-4xl mb-3">&#127858;</div><h4 class="font-headline text-imperial font-bold mb-1">Multi-Cuisine Restaurant</h4><p class="text-sm text-gray-500">Pure veg dining hall</p></div>
+<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-gold"><div class="text-4xl mb-3">&#128663;</div><h4 class="font-headline text-imperial font-bold mb-1">Free Parking</h4><p class="text-sm text-gray-500">Ample secure space</p></div>
+<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-gold"><div class="text-4xl mb-3">&#128246;</div><h4 class="font-headline text-imperial font-bold mb-1">High-Speed Wi-Fi</h4><p class="text-sm text-gray-500">Stay connected</p></div>
+<div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-gold"><div class="text-4xl mb-3">&#127963;</div><h4 class="font-headline text-imperial font-bold mb-1">Banquet Hall</h4><p class="text-sm text-gray-500">Kitty &amp; events</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== SECTION C: TESTIMONIALS CAROUSEL ===== -->
+<section id="testimonials" class="py-20 lg:py-28 bg-white" x-data="{ active: 0, testimonials: [
+{ name: 'Priya S.', from: 'Ahmedabad', text: 'A pure vegetarian gem on the highway! The Gujarati thali took me straight back to my grandmother\'s kitchen. Immaculate service and royal ambiance.' },
+{ name: 'Rajesh M.', from: 'Jaipur', text: 'We stopped here during our drive from Jaipur to Ahmedabad. The Rajasthani Dal Baati was authentic, and the rooms were spotless. Highly recommended!' },
+{ name: 'Anita K.', from: 'Mumbai', text: 'Booked the banquet for our kitty party. The team went above and beyond. Delicious food, elegant setup, and very affordable. We are already planning our next event!' },
+{ name: 'Vikram P.', from: 'Delhi', text: 'As a corporate traveler, I appreciate the clean highway halt access. Fast Wi-Fi, comfortable executive room, and a warm staff. My go-to stopover in Mehsana.' },
+{ name: 'Meera & Rahul', from: 'Vadodara', text: 'We chose this for our family get-together and were blown away. The 100% pure veg assurance meant everyone could eat without worry. A truly royal experience.' }
+] }">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-imperial mb-4">Guest Testimonials</h2>
+<p class="text-gray-600 max-w-xl mx-auto mb-4 text-lg">Hear from our cherished guests across the country</p>
+<div class="golden-rule mb-10 text-gold text-xs">&#9670;</div>
+<div class="relative">
+<div class="overflow-hidden">
+<div class="flex transition-all duration-500 ease-in-out" :style="'transform: translateX(-' + (active * 100) + '%)'">
+<template x-for="(t, i) in testimonials" :key="i">
+<div class="min-w-full px-4 lg:px-12">
+<div class="parchment-bg border-2 border-gold/30 rounded-3xl p-8 lg:p-12 shadow-xl">
+<div class="text-gold text-4xl mb-4 font-headline">&ldquo;</div>
+<p class="text-gray-700 text-lg lg:text-xl leading-relaxed italic mb-6" x-text="t.text"></p>
+<div class="w-12 h-0.5 bg-gold mx-auto mb-4"></div>
+<p class="font-headline text-imperial font-bold text-lg" x-text="t.name"></p>
+<p class="text-golddark text-sm" x-text="'— ' + t.from"></p>
+</div>
+</div>
+</template>
+</div>
+</div>
+<div class="flex justify-center gap-3 mt-8">
+<template x-for="(t, i) in testimonials" :key="i">
+<button @click="active = i" class="w-3 h-3 rounded-full transition-all duration-300" :class="active === i ? 'bg-gold scale-125' : 'bg-gray-300 hover:bg-gold/50'"></button>
+</template>
+</div>
+<div class="flex justify-center gap-4 mt-6">
+<button @click="active = active > 0 ? active - 1 : testimonials.length - 1" class="bg-gold/10 hover:bg-gold text-imperial hover:text-white p-3 rounded-full transition-all duration-300 border border-gold/30 btn-scale" aria-label="Previous">&larr;</button>
+<button @click="active = active < testimonials.length - 1 ? active + 1 : 0" class="bg-gold/10 hover:bg-gold text-imperial hover:text-white p-3 rounded-full transition-all duration-300 border border-gold/30 btn-scale" aria-label="Next">&rarr;</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== GOLDEN DIVIDER ===== -->
+<div class="golden-rule py-8 text-gold text-lg font-headline">&#9670;</div>
+
+<!-- ===== LOCATION ===== -->
+<section id="location" class="py-20 lg:py-28 bg-cream">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-imperial mb-4">Find Us</h2>
+<p class="text-gray-600 max-w-xl mx-auto text-lg">Conveniently situated near Mehsana Junction and the highway — easy access for every traveler.</p>
+</div>
+<div class="bg-white rounded-3xl p-6 lg:p-10 shadow-xl border border-gold/20 flex flex-col lg:flex-row gap-8 items-center">
+<div class="flex-1 space-y-5">
+<div class="flex items-start gap-3"><span class="text-gold text-xl mt-1">&#128205;</span><div><h4 class="font-headline text-imperial font-bold">Address</h4><p class="text-gray-600">Mehsana Junction Area, Mehsana, Gujarat 384001</p></div></div>
+<div class="flex items-start gap-3"><span class="text-gold text-xl mt-1">&#128222;</span><div><h4 class="font-headline text-imperial font-bold">Phone</h4><p class="text-gray-600">+91 98765 43210</p></div></div>
+<div class="flex items-start gap-3"><span class="text-gold text-xl mt-1">&#9993;</span><div><h4 class="font-headline text-imperial font-bold">Email</h4><p class="text-gray-600">info@hotelbanshiwalajunction.com</p></div></div>
+<button @click="$store.modal.open = true" class="mt-2 bg-imperial hover:bg-imperial/90 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 shadow-lg btn-scale">Book Your Stay</button>
+</div>
+<div class="flex-1 w-full h-64 lg:h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-inner border border-gold/20">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117036.2188780563!2d72.53262885!3d23.58803075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c4a1b2c3d4e5f%3A0x6a7b8c9d0e1f2a3b!2sMehsana%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-imperial text-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="w-12 h-0.5 bg-gold mx-auto mb-6"></div>
+<p class="font-headline text-2xl font-bold mb-1 tracking-wide">Hotel Banshiwala Junction</p>
+<p class="text-gold/70 text-sm mb-2">Mehsana, Gujarat &mdash; 100% Pure Vegetarian Hospitality</p>
+<div class="flex justify-center gap-6 text-gold/50 text-sm mt-6">
+<a href="#heritage" class="hover:text-gold transition-colors">Heritage</a>
+<a href="#culinary" class="hover:text-gold transition-colors">Cuisine</a>
+<a href="#rooms" class="hover:text-gold transition-colors">Rooms</a>
+<a href="#banquets" class="hover:text-gold transition-colors">Banquets</a>
+<a href="#location" class="hover:text-gold transition-colors">Location</a>
+</div>
+<p class="text-white/40 text-xs mt-8">&copy; 2026 Hotel Banshiwala Junction. All rights reserved.</p>
+</div>
+</footer>
+
+<!-- ===== BOOKING INQUIRY MODAL (Alpine.js) ===== -->
+<div x-data x-init="$store.modal = { open: false }" x-cloak>
+<div x-show="$store.modal.open" x-transition.opacity.duration.300 class="fixed inset-0 z-[60] bg-imperial/60 backdrop-blur-sm flex items-center justify-center p-4" @click.self="$store.modal.open = false">
+<div x-show="$store.modal.open" x-transition.scale.origin.center.duration.300 class="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl border-4 border-gold/40 shadow-2xl" @click.stop>
+<div class="parchment-bg p-6 lg:p-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-2xl text-imperial">Book Your Stay / Table</h3>
+<button @click="$store.modal.open = false" class="text-gray-400 hover:text-imperial text-2xl leading-none transition-colors">&times;</button>
+</div>
+<div class="w-full h-0.5 bg-gold/40 mb-6"></div>
+<form x-data="{ name: '', phone: '', service: 'Room Booking', date: '', guests: '1', submitted: false }" @submit.prevent="submitted = true" class="space-y-5">
+<div x-show="submitted" x-transition.duration.300 class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl text-sm font-medium text-center">&#10003; Thank you! Our Mehsana hospitality desk will contact you via WhatsApp shortly.</div>
+<template x-if="!submitted">
+<div class="space-y-5">
+<div><label class="block text-sm font-bold text-imperial mb-1">Full Name</label><input type="text" x-model="name" required class="w-full border border-gold/30 bg-white/80 rounded-xl px-4 py-3 focus:ring-2 focus:ring-gold/40 focus:border-gold outline-none transition" placeholder="Your name" /></div>
+<div><label class="block text-sm font-bold text-imperial mb-1">Phone</label><input type="tel" x-model="phone" required class="w-full border border-gold/30 bg-white/80 rounded-xl px-4 py-3 focus:ring-2 focus:ring-gold/40 focus:border-gold outline-none transition" placeholder="+91 98765 43210" /></div>
+<div><label class="block text-sm font-bold text-imperial mb-1">Service Type</label><select x-model="service" class="w-full border border-gold/30 bg-white/80 rounded-xl px-4 py-3 focus:ring-2 focus:ring-gold/40 focus:border-gold outline-none transition"><option>Room Booking</option><option>Restaurant Dining</option><option>Kitty Party / Banquet Event</option></select></div>
+<div><label class="block text-sm font-bold text-imperial mb-1">Date</label><input type="date" x-model="date" required class="w-full border border-gold/30 bg-white/80 rounded-xl px-4 py-3 focus:ring-2 focus:ring-gold/40 focus:border-gold outline-none transition" /></div>
+<div><label class="block text-sm font-bold text-imperial mb-1">Guest Count</label><input type="number" x-model="guests" min="1" max="100" required class="w-full border border-gold/30 bg-white/80 rounded-xl px-4 py-3 focus:ring-2 focus:ring-gold/40 focus:border-gold outline-none transition" /></div>
+<button type="submit" class="w-full bg-imperial hover:bg-imperial/90 text-white font-bold py-3 rounded-xl transition-all duration-300 shadow-lg btn-scale">Submit Inquiry</button>
+</div>
+</template>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 80) { navbar.classList.add('nav-scrolled'); }
+else { navbar.classList.remove('nav-scrolled'); }
+});
+
+var menuToggle = document.getElementById('menu-toggle');
+var mobileMenu = document.getElementById('mobile-menu');
+menuToggle.addEventListener('click', function() { mobileMenu.classList.toggle('hidden'); });
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+link.addEventListener('click', function() { mobileMenu.classList.add('hidden'); });
+});
+
+if (window.Motion) {
+var _Motion = Motion;
+var animate = _Motion.animate;
+var scroll = _Motion.scroll;
+var inView = _Motion.inView;
+
+animate('#hero-content', { opacity: [0, 1], y: [40, 0] }, { duration: 1.2, easing: 'ease-out' });
+
+var sections = document.querySelectorAll('#heritage, #culinary, #rooms, #banquets, #amenities, #testimonials, #location');
+sections.forEach(function(section) {
+section.style.opacity = '0';
+section.style.transform = 'translateY(40px)';
+inView(section, function() {
+animate(section, { opacity: [0, 1], y: [40, 0] }, { duration: 0.8, easing: 'ease-out' });
+}, { amount: 0.15 });
+});
+
+var cardGroups = document.querySelectorAll('#culinary .grid > div, #rooms .grid > div, #amenities .grid > div');
+cardGroups.forEach(function(card, i) {
+card.style.opacity = '0';
+card.style.transform = 'translateY(30px)';
+inView(card, function() {
+animate(card, { opacity: [0, 1], y: [30, 0] }, { duration: 0.6, delay: i * 0.15, easing: 'ease-out' });
+}, { amount: 0.15 });
+});
+
+var banquetStats = document.querySelectorAll('#banquets .grid.grid-cols-2 > div');
+banquetStats.forEach(function(stat, i) {
+stat.style.opacity = '0';
+stat.style.transform = 'translateY(20px)';
+inView(stat, function() {
+animate(stat, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: i * 0.1, easing: 'ease-out' });
+}, { amount: 0.15 });
+});
+}
+</script>
+</body>
+</html>
