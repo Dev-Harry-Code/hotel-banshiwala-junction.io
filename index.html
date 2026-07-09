@@ -62,14 +62,14 @@ tailwind.config = {
 </nav>
 <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">☰</button>
 </div>
-<nav id="mobile-menu" class="md:hidden hidden flex-col bg-imperial px-4 pb-4 text-white text-sm font-medium gap-3">
-<a href="#heritage" class="hover:text-gold transition-colors py-1">Heritage</a>
-<a href="#culinary" class="hover:text-gold transition-colors py-1">Cuisine</a>
-<a href="#rooms" class="hover:text-gold transition-colors py-1">Rooms</a>
-<a href="#banquets" class="hover:text-gold transition-colors py-1">Banquets</a>
-<a href="#location" class="hover:text-gold transition-colors py-1">Location</a>
-<button @click="$store.modal.open = true" class="bg-gold hover:bg-golddark text-white font-semibold px-5 py-2 rounded-full transition-all duration-300 text-center mt-2">Book Stay / Table</button>
-</nav>
+<nav id="mobile-menu" class="md:hidden hidden flex flex-col bg-imperial px-4 pb-6 text-white text-sm font-medium gap-2 shadow-xl border-t border-white/10">
+    <a href="#heritage" class="hover:text-gold transition-colors py-3 border-b border-white/5">Heritage</a>
+    <a href="#culinary" class="hover:text-gold transition-colors py-3 border-b border-white/5">Cuisine</a>
+    <a href="#rooms" class="hover:text-gold transition-colors py-3 border-b border-white/5">Rooms</a>
+    <a href="#banquets" class="hover:text-gold transition-colors py-3 border-b border-white/5">Banquets</a>
+    <a href="#location" class="hover:text-gold transition-colors py-3 border-b border-white/5">Location</a>
+    <button @click="$store.modal.open = true" class="bg-gold hover:bg-golddark text-white font-semibold px-5 py-3 rounded-full transition-all duration-300 text-center mt-4 shadow-md">Book Stay / Table</button>
+  </nav>
 </header>
 
 <!-- ===== HERO ===== -->
